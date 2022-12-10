@@ -9,18 +9,14 @@
 
             if(isset($_GET['id']))
             {
-                $id=$_GET['id'];
-
+                $id = $_GET['id'];
                 $sql = "SELECT * FROM tbl_order WHERE id=$id";
-
                 $res = mysqli_query($conn, $sql);
-
                 $count = mysqli_num_rows($res);
 
                 if($count==1)
                 {
-                    $row=mysqli_fetch_assoc($res);
-
+                    $row = mysqli_fetch_assoc($res);
                     $food = $row['food'];
                     $price = $row['price'];
                     $qty = $row['qty'];
@@ -32,37 +28,30 @@
                 }
                 else
                 {
+                    $_SESSION['no-order-found'] = "<div class='error'>Order not found.</div>";
                     header('location:'.SITEURL.'admin/manage-order.php');
                 }
-
             }
             else
             {
+                // redirect to manage food
                 header('location:'.SITEURL.'admin/manage-order.php');
             }
 
         ?>
 
         <form action="" method="POST">
-
             <table class="tbl-30">
                 <tr>
                     <td>Food Name</td>
-                    <td><b><?php echo $food; ?></b></td>
+                    <td><?php echo $food; ?></td>
                 </tr>
-
                 <tr>
-                    <td>Price</td>
-                    <td>$ <?php echo $price; ?></td>
-                </tr>
-
-                <tr>
-                    <td>Quantity</td>
+                    <td>Qty</td>
                     <td>
                         <input type="number" name="qty" value="<?php echo $qty; ?>">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Status</td>
                     <td>
@@ -81,21 +70,18 @@
                         <input type="text" name="customer_name" value="<?php echo $customer_name; ?>">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Customer Contact:</td>
                     <td>
                         <input type="text" name="customer_contact" value="<?php echo $customer_contact; ?>">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Customer Email:</td>
                     <td>
                         <input type="text" name="customer_email" value="<?php echo $customer_email; ?>">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Customer Address:</td>
                     <td>
@@ -121,11 +107,8 @@
                 $id = $_POST['id'];
                 $price = $_POST['price'];
                 $qty = $_POST['qty'];
-
                 $total = $price * $qty;
-
                 $status = $_POST['status'];
-
                 $customer_name = $_POST['customer_name'];
                 $customer_contact = $_POST['customer_contact'];
                 $customer_email = $_POST['customer_email'];
@@ -141,19 +124,20 @@
                     customer_address = '$customer_address'
                     WHERE id=$id
                 ";
-            }
 
-            $res2 = mysqli_query($conn, $sql2);
+                $res2 = mysqli_query($conn, $sql2);
 
-            if($res2==true)
-            {
-                $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
-                header('location:'.SITEURL.'admin/manage-order.php');
-            }
-            else
-            {
-                $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
-                header('location:'.SITEURL.'admin/manage-order.php');
+
+                if($res2==true)
+                {
+                    $_SESSION['update'] = "<div class='success'>Order Updated Successfully.</div>";
+                    header('location:'.SITEURL.'admin/manage-order.php');
+                }
+                else
+                {
+                    $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
+                    header('location:'.SITEURL.'admin/manage-order.php');
+                }
             }
         ?>
 

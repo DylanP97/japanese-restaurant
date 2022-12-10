@@ -58,14 +58,12 @@
 
         <br><br>
 
-        <!-- Button to Add Admin -->
         <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add food</a>
 
         <br/><br/><br/>
 
         <table class="tbl-full">
             <tr>
-                <th>S.N.</th>
                 <th>Title</th>
                 <th>Price</th>
                 <th>Image</th>
@@ -103,7 +101,6 @@
                         ?>
 
                         <tr>
-                            <td><?php echo $sn++; ?></td>
                             <td><?php echo $title; ?></td>
                             <td>$<?php echo $price; ?></td>
                             <td>

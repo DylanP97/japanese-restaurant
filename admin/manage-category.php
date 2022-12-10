@@ -65,7 +65,6 @@
 
         <table class="tbl-full">
             <tr>
-                <th>S.N.</th>
                 <th>Title</th>
                 <th>Image</th>
                 <th>Featured</th>
@@ -102,7 +101,6 @@
                         ?>
 
                             <tr>
-                                <td><?php echo $sn++; ?></td>
                                 <td><?php echo $title; ?></td>
                                 <td>
                                     <?php

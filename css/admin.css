@@ -1,14 +1,20 @@
 
+:root {
+    --primary : #C70025;
+}
 
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Aller Display, 'Noto Sans', 'Open Sans', sans-serif;
 }
 
 body {
     min-width: 100vh;
     position: relative;
+}
+a {
+    font-family: Aller Display, 'Noto Sans', 'Open Sans', sans-serif;
 }
 
 .wrapper{
@@ -28,6 +34,7 @@ body {
 
 .tbl-full{
     width: 100%;
+    text-align: center;
 }
 .tbl-30{
     width: 30%;
@@ -36,11 +43,13 @@ body {
 table tr th {
     border-bottom: 1px solid black;
     padding: 1%;
-    text-align: left;
+    text-align: center;
+    min-width: 80px;
 }
 
 table tr td {
     padding: 1%;
+    min-width: 80px;
 }
 
 .btn-primary{
@@ -48,39 +57,34 @@ table tr td {
     padding: 1%;
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 .btn-primary:hover{
     background-color: #3742fa;
 }
-
 .btn-secondary{
     background-color: #7bed9f;
     padding: 1%;
     color: black;
     text-decoration: none;
-    font-weight: bold;
 }
 .btn-secondary:hover{
     background-color: #2ed753;
 }
 .btn-danger{
-    background-color: #ff6b81;
+    background-color: red;
     padding: 1%;
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 .btn-danger:hover{
-    background-color: #ff4757;
+    background-color: var(--primary);
 }
 .success{
     color: #2ed753;
 }
 .error{
-    color: #ff4757
+    color: red;
 }
-
 
 /* CSS for Menu */
 .menu {
@@ -95,11 +99,10 @@ table tr td {
 }
 .menu ul li a {
     text-decoration: none;
-    font-weight: bold;
-    color: #ff6b81;
+    color: var(--primary);
 }
 .menu ul li a:hover {
-    color: #ff4757;
+    color: var(--primary);
 }
 
 /* CSS for Main Content */
@@ -118,7 +121,7 @@ table tr td {
 
 /* CSS for Footer */
 .footer{
-    background-color: #ff4757;
+    background-color: var(--primary);
     color: white;
     position: absolute;
     bottom: 0;
