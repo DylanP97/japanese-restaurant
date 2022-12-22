@@ -41,7 +41,7 @@
         ?>
 
         <form action="" method="POST">
-            <table class="tbl-30">
+            <table class='update-table'>
                 <tr>
                     <td>Full Name: </td>
                     <td>

@@ -6,7 +6,7 @@
         <div class="container">
             
             <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
-                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="search" name="search" placeholder="What are you looking for?" required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
 
@@ -19,7 +19,7 @@
     <!-- Food Menu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Full Menu</h2>
 
             <div class='center-food'>
 

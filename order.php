@@ -19,6 +19,7 @@
                 $title = $row['title'];
                 $price = $row['price'];
                 $image_name = $row['image_name'];
+                $qty_orders = $row['qty_orders'];
             }
             else
             {
@@ -52,22 +53,19 @@
                                 ?>
                                 <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name ; ?>" alt="" class="img-responsive img-curve">
                                 <?php
-                            }
-                        
-                        
+                            }                        
                         ?>
                     </div>
     
                     <div class="food-menu-desc">
                         <h3><?php echo $title; ?></h3>
                         <input type="hidden" name="food" value="<?php echo $title; ?>">
-
+                        <input type="hidden" name="food_id" value="<?php echo $food_id; ?>">
+                        <input type="hidden" name="qty_orders" value=<?php echo $qty_orders; ?>>
                         <p class="food-price">$<?php echo $price; ?></p>
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
-
                         <div class="order-label">Quantity</div>
                         <input type="number" name="qty" class="input-responsive" value="1" required>
-                        
                     </div>
 
                 </div>
@@ -97,17 +95,15 @@
                     $food = $_POST['food'];
                     $price = $_POST['price'];
                     $qty = $_POST['qty'];
-
                     $total = $price * $qty;
-
                     $order_date = date("Y-m-d");
-
                     $status = "Ordered";
-
                     $customer_name = $_POST['full-name'];
                     $customer_contact = $_POST['contact'];
                     $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
+                    $qty_orders = $_POST['qty_orders'];
+                    $food_id = $_POST['food_id'];
 
                     $sql2 = "INSERT INTO tbl_order SET
                         food = '$food',
@@ -123,6 +119,12 @@
                     ";
 
                     $res2 = mysqli_query($conn, $sql2);
+
+                    $sql6 = "UPDATE tbl_food SET
+                        qty_orders = $qty_orders + 1
+                    WHERE id=$food_id";
+
+                    $res6 = mysqli_query($conn, $sql6);
 
                     if($res2==true)
                     {

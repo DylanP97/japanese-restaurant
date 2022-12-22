@@ -31,10 +31,13 @@
                     <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
                 </li>
                 <li>
-                    <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
+                    <a href="<?php echo SITEURL; ?>foods.php">Full Menu</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="<?php echo SITEURL; ?>admin/login.php">Admin</a>
                 </li>
             </ul>
         </div>

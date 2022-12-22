@@ -6,13 +6,12 @@
         <div class="container">
             
             <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
-                <input type="search" name="search" placeholder="Search for Food..." required>
+                <input type="search" name="search" placeholder="What are you looking for?" required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
 
         </div>
     </section>
-    <!-- Food Search Section Ends Here -->
 
     <?php
         if(isset($_SESSION['order']))
@@ -22,7 +21,6 @@
         }
     ?>
 
-    <!-- Categories Section Starts Here -->
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Categories</h2>
@@ -85,12 +83,11 @@
 
         </div>
     </section>
-    <!-- Categories Section Ends Here -->
 
-    <!-- food menu Section Starts Here -->
+
     <section class="food-menu">
         <div class='container'>
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Our Best-Sellers</h2>
 
             <div class='center-food'>
 
@@ -98,7 +95,7 @@
             
             // getting foods from database that are active and featured 
             // SQL query
-            $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes'";
+            $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' ORDER BY qty_orders DESC LIMIT 6";
 
             // execute the query 
             $res2 = mysqli_query($conn, $sql2);
@@ -163,6 +160,7 @@
 
             ?>
 
+            <a href="<?php echo SITEURL; ?>foods.php">Discover all our products</a>
 
 
             </div>
@@ -171,3 +169,5 @@
 
         </div>
     </section>
+
+<?php include('partials-front/footer.php'); ?>

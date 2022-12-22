@@ -1,10 +1,10 @@
 
     <!-- footer Section Starts Here -->
-    <footer class="footer">
-        <div class="text-center">
-            <p>All rights reserved.</p>
+    <div class="footer">
+        <div class="wrapper text-center">
+            <p>2022 All rights reserved, developed by DylanP97</p>
         </div>
-    </footer>
+    </div>
     <!-- footer Section Ends Here -->
 
 </body>

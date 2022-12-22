@@ -1,20 +1,49 @@
 
 :root {
-    --primary : #C70025;
+    --primary: #C70025;
+    --secondary: #ff2b95;
+    --primary2: #9e001d;
+    --primary3: #53000f;
+    --secondary2: #b91668;
+    --heading-font : Aller Display, 'Noto Sans', 'Open Sans', sans-serif;;
 }
 
 *{
     margin: 0;
     padding: 0;
-    font-family: Aller Display, 'Noto Sans', 'Open Sans', sans-serif;
+    font-family: 'Noto Sans', 'Open Sans', sans-serif;
 }
 
 body {
     min-width: 100vh;
     position: relative;
 }
-a {
-    font-family: Aller Display, 'Noto Sans', 'Open Sans', sans-serif;
+
+h1, h2, h3 {
+    font-family: var( --heading-font);
+    font-weight: 500;
+}
+
+input[type="submit"] {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    width: 70%;
+}
+input, textarea {
+    width: 100%;
+}
+input[type="radio"] {
+    width: fit-content;
+}
+
+th, a {
+    font-weight: bold;
+}
+
+.update-table td {
+    min-width: 300px;
 }
 
 .wrapper{
@@ -36,54 +65,42 @@ a {
     width: 100%;
     text-align: center;
 }
-.tbl-30{
-    width: 30%;
-}
 
 table tr th {
     border-bottom: 1px solid black;
     padding: 1%;
     text-align: center;
     min-width: 80px;
+    max-width: 200px;
 }
 
 table tr td {
-    padding: 1%;
     min-width: 80px;
+}
+td {
+    padding: 2% 0%;
 }
 
 .btn-primary{
-    background-color: #1e90ff;
-    padding: 1%;
+    background-color: var(--primary);
+    padding: 10px;
     color: white;
     text-decoration: none;
 }
 .btn-primary:hover{
-    background-color: #3742fa;
+    background-color: var(--primary2);
 }
 .btn-secondary{
-    background-color: #7bed9f;
-    padding: 1%;
-    color: black;
-    text-decoration: none;
-}
-.btn-secondary:hover{
-    background-color: #2ed753;
-}
-.btn-danger{
-    background-color: red;
-    padding: 1%;
+    background-color: var(--secondary);
+    padding: 10px;
     color: white;
     text-decoration: none;
 }
-.btn-danger:hover{
-    background-color: var(--primary);
-}
 .success{
-    color: #2ed753;
+    color: var(--primary2);
 }
 .error{
-    color: red;
+    color: var(--primary2);
 }
 
 /* CSS for Menu */
@@ -108,7 +125,8 @@ table tr td {
 /* CSS for Main Content */
 .main-content {
     background-color: #f1f2f6;
-    padding: 10% 0;
+    padding: 3% 0% 10% 0%;
+    min-height: 80vh;
 }
 
 .col-4 {
@@ -130,15 +148,25 @@ table tr td {
 
 /* CSS for Login */
 .login {
-    border: 1px solid grey;
+    border: 1px solid rgb(231, 231, 231);
     width: 20%;
     margin: 5% auto;
     padding: 2%;
+    background-color: white;
+}
+
+.login input {
+    padding: 3%;
+}
+.login a {
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* CSS for Image Resize */
 .img-resize {
     width: 200px;
-    height: 150px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 20%;
 }

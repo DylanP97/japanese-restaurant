@@ -65,16 +65,18 @@
         <table class="tbl-full">
             <tr>
                 <th>Title</th>
-                <th>Price</th>
                 <th>Image</th>
+                <th>Price</th>
                 <th>Featured</th>
                 <th>Active</th>
-                <th>Actions</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Orders</th>
             </tr>
 
             <?php
                 // query to get all foods from database
-                $sql = "SELECT * FROM tbl_food";
+                $sql = "SELECT * FROM tbl_food ORDER BY title ASC";
                 
                 // execute query
                 $res = mysqli_query($conn, $sql);
@@ -94,15 +96,15 @@
                         // get the values from individual columns
                         $id = $row['id'];
                         $title = $row['title'];
-                        $price = $row['price'];
                         $image_name = $row['image_name'];
+                        $price = $row['price'];
                         $featured = $row['featured'];
                         $active = $row['active'];
+                        $qty_orders = $row['qty_orders'];
                         ?>
 
                         <tr>
                             <td><?php echo $title; ?></td>
-                            <td>$<?php echo $price; ?></td>
                             <td>
                                 <?php
                                     // check whether we have image or not
@@ -118,14 +120,18 @@
                                         // display the message
                                         echo "<div class='error'>Image not added.</div>";
                                     }
-                                ?>
+                                    ?>
                             </td>
+                            <td>$<?php echo $price; ?></td>
                             <td><?php echo $featured; ?></td>
                             <td><?php echo $active; ?></td>
                             <td>
-                                <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                                <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update</a>
                             </td>
+                            <td>
+                                <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Delete</a>
+                            </td>
+                            <td><?php echo $qty_orders; ?></td>
                         </tr>
 
                         <?php

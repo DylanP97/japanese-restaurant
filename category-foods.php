@@ -73,12 +73,10 @@
                                 <?php
                                     if($image_name=="")
                                     {
-                                        // image not available
                                         echo "<div class='error'>Image not available.</div>";
                                     }
                                     else 
                                     {
-                                        // image available
                                         ?>
                                         <img src="<?php echo SITEURL ?>images/food/<?php echo $image_name ?>" class="img-responsive img-curve">
                                         <?php
@@ -101,7 +99,6 @@
                 }
                 else 
                 {
-                    // food not available
                     echo "<div class='error'>Food not available.</div>";
                 }
 
@@ -112,7 +109,3 @@
         </div>
 
     </section>
-    <!-- Food Menu Section Ends Here -->
-
-
-    <?php include('partials-front/footer.php'); ?>

@@ -7,44 +7,42 @@
     </head>
 
     <body>
-        
-        <div class="login">
-            <h1 class="text-center">Login</h1>
-            <br>
+        <div class="main-content">
+            <div class="login">
+                <h1 class="text-center">Login</h1>
+                <br>
+    
+                <?php
+                    if(isset($_SESSION['login']))
+                    {
+                        echo $_SESSION['login'];
+                        unset ($_SESSION['login']);
+                    }
+    
+                    if(isset($_SESSION['no-login-message']))
+                    {
+                        echo $_SESSION['no-login-message'];
+                        unset($_SESSION['no-login-message']);
+                    }
+                ?>
+                <br>
+    
+                <form action="" method="POST" class="text-center">
+                    <p style="padding: 7px 0px">Username</p>
+                    <input type="text" name="username" placeholder="Enter Username">
+                    <br>
+                    <br>
+                    <p>Password</p>
+                    <input type="password" name="password" placeholder="Enter password">
+                    <br>
+                    <br>
+                    <input type="submit" name="submit" value="Login" class="btn-primary">
+                    <br>
+                    <br>
+                    <a href="<?php echo SITEURL; ?>">Go Back To Homepage</a>
+                </form>
 
-            <?php
-                if(isset($_SESSION['login']))
-                {
-                    echo $_SESSION['login'];
-                    unset ($_SESSION['login']);
-                }
-
-                if(isset($_SESSION['no-login-message']))
-                {
-                    echo $_SESSION['no-login-message'];
-                    unset($_SESSION['no-login-message']);
-                }
-            ?>
-            <br>
-
-            <!-- Login Form Starts Here -->
-            <form action="" method="POST" class="text-center">
-            Username:
-            <br>
-            <input type="text" name="username" placeholder="Enter Username">
-            <br>
-            <br>
-            Password:
-            <br>
-            <input type="password" name="password" placeholder="Enter password">
-            <br>
-            <br>
-            <input type="submit" name="submit" value="Login" class="btn-primary">
-            </form>
-            <!-- Login Form Ends Here -->
-
-
-            <p class="text-center">Created by - <a href="www.dylanp97.com">Dylanp97.com</a></p>
+            </div>
         </div>
 
     </body>

@@ -41,7 +41,7 @@
         ?>
 
         <form action="" method="POST">
-            <table class="tbl-30">
+            <table class='update-table'>
                 <tr>
                     <td>Food Name</td>
                     <td><?php echo $food; ?></td>
@@ -90,7 +90,7 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2">
+                    <td>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
 

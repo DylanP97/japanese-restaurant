@@ -14,7 +14,7 @@
         ?>
 
         <form action="" method="POST">
-            <table class="tbl_30">
+            <table class='update-table'>
                 <tr>
                     <td>Current Password:</td>
                     <td>

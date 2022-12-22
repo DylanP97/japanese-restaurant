@@ -31,25 +31,22 @@
                         <input type="text" name="title" placeholder="Food's title">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Image:</td>
                     <td>
                         <input type="file" name="image">
                     </td>
                 </tr>
-
                 <tr>
                     <td>Description:</td>
                     <td>
                         <textarea name="description" cols="50" rows="5" placeholder="Description of the food"></textarea>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Price:</td>
                     <td>
-                        <input type="number" name="price" placeholder="Add a Price">
+                        <input type="number" step=".01" name="price" placeholder="Add a Price">
                     </td>
                 </tr>
 
@@ -120,7 +117,7 @@
                         <input type="submit" name="submit" value="Add Food" class="btn-secondary">
                     </td>
                 </tr>
-
+                <input type="hidden" name="qty_orders" value=0>
             </table>
 
         </form>
@@ -135,6 +132,7 @@
                 $description = $_POST['description'];
                 $price = $_POST['price'];
                 $category = $_POST['category'];
+                $qty_orders = $_POST['qty_orders'];
 
                 // Check whether radio button for featured and active are checked or not
                 if(isset($_POST['featured']))
@@ -211,7 +209,8 @@
                     image_name = '$image_name',
                     category_id = $category,
                     featured = '$featured',
-                    active = '$active'
+                    active = '$active',
+                    qty_orders = '$qty_orders'
                 ";
 
                 // execute the query

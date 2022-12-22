@@ -38,7 +38,7 @@
         ?>
 
         <form action="" method="POST" enctype="multipart/form-data">
-            <table class="tbl-30">
+            <table class='update-table'>
                 <tr>
                     <td>Title: </td>
                     <td>

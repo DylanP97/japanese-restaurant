@@ -69,13 +69,14 @@
                 <th>Image</th>
                 <th>Featured</th>
                 <th>Active</th>
-                <th>Actions</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
 
             <?php
             
                 // query to get all categories from database
-                $sql = "SELECT * FROM tbl_category";
+                $sql = "SELECT * FROM tbl_category ORDER BY title ASC";
             
                 // execute query
                 $res = mysqli_query($conn, $sql);
@@ -124,8 +125,10 @@
                                 <td><?php echo $featured; ?></td>
                                 <td><?php echo $active; ?></td>
                                 <td>
-                                    <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update Category</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update</a>
+                                </td>
+                                <td>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Delete</a>
                                 </td>
                             </tr>
 
